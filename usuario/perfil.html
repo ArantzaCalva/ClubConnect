@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - ClubConnect</title>
+    <link href="../styles/menu.css" rel="stylesheet"> 
+    <link href="../stylesUsuario/perfil.css" rel="stylesheet"> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+</head>
+<body>
+
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class='bx bx-up-arrow-alt scrolltop__icon'></i>
+    </a>
+    
+    <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <div class="nav__logo">
+                    <img src="../imgs/logo.png" alt="Logo" class="logo-img"> 
+                </div>
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="indexUser.html" class="nav__link">Inicio</a></li>
+                        <li class="nav__item"><a href="horariosUser.html" class="nav__link">Horarios</a></li>
+                        <li class="nav__item"><a href="asistenciasUser.html" class="nav__link active-link">Mis Asistencias</a></li>
+                        <li class="nav__item"><a href="perfil.html" class="nav__link">Mi Perfil</a></li>
+                    </ul>
+                </div>
+                <div class="perfil-usuario">
+                    <div class="avatar-pequeño">MG</div>
+                </div>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+            </nav>
+        </header>
+
+    <main class="contenedor-perfil">
+        
+        <!-- CABECERA DE PERFIL -->
+        <section class="cabecera-perfil">
+            <div class="banner-perfil">
+                <div class="avatar-perfil-grande">
+                    <div class="foto-perfil">MG</div>
+                    <button class="btn-cambiar-foto" onclick="cambiarFoto()">
+                        <i class='bx bx-camera'></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="info-perfil-principal">
+                <h1>María González</h1>
+                <p class="email-perfil"><i class='bx bx-envelope'></i> maria@email.com</p>
+                <div class="badges-perfil">
+                    <span class="badge-membresia premium">
+                        <i class='bx bx-crown'></i> Premium
+                    </span>
+                    <span class="badge-estado activo">
+                        <i class='bx bx-check-circle'></i> Activo
+                    </span>
+                    <span class="badge-miembro">
+                        <i class='bx bx-calendar'></i> Miembro desde Mar 2025
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENÚ DE PESTAÑAS -->
+        <section class="tabs-perfil">
+            <button class="tab-perfil activo" data-tab="informacion">
+                <i class='bx bx-user'></i>
+                <span>Información Personal</span>
+            </button>
+            <button class="tab-perfil" data-tab="membresia">
+                <i class='bx bx-id-card'></i>
+                <span>Mi Membresía</span>
+            </button>
+            <button class="tab-perfil" data-tab="seguridad">
+                <i class='bx bx-lock-alt'></i>
+                <span>Seguridad</span>
+            </button>
+            <button class="tab-perfil" data-tab="notificaciones">
+                <i class='bx bx-bell'></i>
+                <span>Notificaciones</span>
+            </button>
+        </section>
+
+        <!-- CONTENIDO DE PESTAÑAS -->
+        <div class="contenido-tabs">
+            
+            <!-- TAB: INFORMACIÓN PERSONAL -->
+            <div class="tab-contenido activo" id="tab-informacion">
+                <div class="card-perfil">
+                    <div class="header-card-perfil">
+                        <h2><i class='bx bx-user'></i> Información Personal</h2>
+                        <button class="btn-editar-perfil" onclick="habilitarEdicion()">
+                            <i class='bx bx-edit-alt'></i> Editar
+                        </button>
+                    </div>
+
+                    <form class="form-perfil" id="form-info-personal">
+                        <div class="grid-form-perfil">
+                            <div class="campo-form-perfil">
+                                <label>Nombre Completo</label>
+                                <input type="text" value="María González" disabled>
+                            </div>
+
+                            <div class="campo-form-perfil">
+                                <label>Correo Electrónico</label>
+                                <input type="email" value="maria@email.com" disabled>
+                            </div>
+
+                            <div class="campo-form-perfil">
+                                <label>Teléfono</label>
+                                <input type="tel" value="3472984412" disabled>
+                            </div>
+
+                            <div class="campo-form-perfil">
+                                <label>Fecha de Nacimiento</label>
+                                <input type="date" value="1995-05-15" disabled>
+                            </div>
+
+                            <div class="campo-form-perfil campo-completo">
+                                <label>Dirección</label>
+                                <input type="text" value="Av. Principal #123, Col. Centro" disabled>
+                            </div>
+
+                            <div class="campo-form-perfil">
+                                <label>Ciudad</label>
+                                <input type="text" value="Tlaxcala" disabled>
+                            </div>
+
+                            <div class="campo-form-perfil">
+                                <label>Código Postal</label>
+                                <input type="text" value="90000" disabled>
+                            </div>
+                        </div>
+
+                        <div class="botones-form-perfil" style="display: none;">
+                            <button type="button" class="btn-cancelar" onclick="cancelarEdicion()">
+                                <i class='bx bx-x'></i> Cancelar
+                            </button>
+                            <button type="submit" class="btn-guardar">
+                                <i class='bx bx-check'></i> Guardar Cambios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- INFORMACIÓN ADICIONAL -->
+                <div class="card-perfil">
+                    <div class="header-card-perfil">
+                        <h2><i class='bx bx-heart-circle'></i> Información Médica</h2>
+                    </div>
+
+                    <form class="form-perfil">
+                        <div class="grid-form-perfil">
+                            <div class="campo-form-perfil">
+                                <label>Tipo de Sangre</label>
+                                <select disabled>
+                                    <option>O+</option>
+                                    <option>O-</option>
+                                    <option>A+</option>
+                                    <option>A-</option>
+                                    <option>B+</option>
+                                    <option>B-</option>
+                                    <option>AB+</option>
+                                    <option>AB-</option>
+                                </select>
+                            </div>
+
+                            <div class="campo-form-perfil">
+                                <label>Contacto de Emergencia</label>
+                                <input type="tel" value="5551234567" disabled>
+                            </div>
+
+                            <div class="campo-form-perfil campo-completo">
+                                <label>Alergias o Condiciones Médicas</label>
+                                <textarea rows="3" disabled>Ninguna</textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- TAB: MEMBRESÍA -->
+            <div class="tab-contenido" id="tab-membresia">
+                <div class="card-perfil">
+                    <div class="header-card-perfil">
+                        <h2><i class='bx bx-id-card'></i> Detalles de Membresía</h2>
+                    </div>
+
+                    <div class="info-membresia-detalle">
+                        <div class="tarjeta-membresia-completa">
+                            <div class="fondo-membresia premium">
+                                <div class="contenido-tarjeta-membresia">
+                                    <div class="header-tarjeta-membresia">
+                                        <span class="tipo-membresia-card">
+                                            <i class='bx bx-crown'></i> Membresía Premium
+                                        </span>
+                                        <span class="numero-membresia-card">#10003</span>
+                                    </div>
+                                    
+                                    <div class="nombre-tarjeta-membresia">
+                                        <h3>María González</h3>
+                                    </div>
+
+                                    <div class="footer-tarjeta-membresia">
+                                        <div>
+                                            <small>Válida desde</small>
+                                            <strong>22 Mar 2025</strong>
+                                        </div>
+                                        <div>
+                                            <small>Válida hasta</small>
+                                            <strong>22 Nov 2025</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detalles-membresia-grid">
+                            <div class="detalle-item">
+                                <i class='bx bx-time'></i>
+                                <div>
+                                    <small>Días Restantes</small>
+                                    <strong>30 días</strong>
+                                </div>
+                            </div>
+
+                            <div class="detalle-item">
+                                <i class='bx bx-dollar-circle'></i>
+                                <div>
+                                    <small>Precio Mensual</small>
+                                    <strong>$800 MXN</strong>
+                                </div>
+                            </div>
+
+                            <div class="detalle-item">
+                                <i class='bx bx-refresh'></i>
+                                <div>
+                                    <small>Renovación Automática</small>
+                                    <strong>Activada</strong>
+                                </div>
+                            </div>
+
+                            <div class="detalle-item">
+                                <i class='bx bx-calendar-check'></i>
+                                <div>
+                                    <small>Próximo Pago</small>
+                                    <strong>22 Dic 2025</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acciones-membresia">
+                        <button class="btn-renovar-membresia">
+                            <i class='bx bx-refresh'></i> Renovar Ahora
+                        </button>
+                        <button class="btn-cambiar-plan">
+                            <i class='bx bx-transfer'></i> Cambiar Plan
+                        </button>
+                        <button class="btn-cancelar-membresia">
+                            <i class='bx bx-x-circle'></i> Cancelar Membresía
+                        </button>
+                    </div>
+                </div>
+
+                <!-- BENEFICIOS -->
+                <div class="card-perfil">
+                    <div class="header-card-perfil">
+                        <h2><i class='bx bx-gift'></i> Beneficios de tu Plan</h2>
+                    </div>
+
+                    <div class="lista-beneficios">
+                        <div class="item-beneficio">
+                            <i class='bx bx-check-circle'></i>
+                            <span>Acceso ilimitado al gimnasio</span>
+                        </div>
+                        <div class="item-beneficio">
+                            <i class='bx bx-check-circle'></i>
+                            <span>Todas las clases grupales incluidas</span>
+                        </div>
+                        <div class="item-beneficio">
+                            <i class='bx bx-check-circle'></i>
+                            <span>Asesoría nutricional mensual</span>
+                        </div>
+                        <div class="item-beneficio">
+                            <i class='bx bx-check-circle'></i>
+                            <span>Acceso a zona de spa</span>
+                        </div>
+                        <div class="item-beneficio">
+                            <i class='bx bx-check-circle'></i>
+                            <span>2 invitaciones de cortesía al mes</span>
+                        </div>
+                        <div class="item-beneficio">
+                            <i class='bx bx-check-circle'></i>
+                            <span>10% descuento en productos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: SEGURIDAD -->
+            <div class="tab-contenido" id="tab-seguridad">
+                <div class="card-perfil">
+                    <div class="header-card-perfil">
+                        <h2><i class='bx bx-lock-alt'></i> Cambiar Contraseña</h2>
+                    </div>
+
+                    <form class="form-perfil" id="form-cambiar-password">
+                        <div class="campo-form-perfil campo-completo">
+                            <label>Contraseña Actual</label>
+                            <div class="input-con-icono">
+                                <input type="password" placeholder="Ingresa tu contraseña actual">
+                                <i class='bx bx-lock-alt'></i>
+                            </div>
+                        </div>
+
+                        <div class="campo-form-perfil campo-completo">
+                            <label>Nueva Contraseña</label>
+                            <div class="input-con-icono">
+                                <input type="password" placeholder="Ingresa tu nueva contraseña">
+                                <i class='bx bx-lock-alt'></i>
+                            </div>
+                        </div>
+
+                        <div class="campo-form-perfil campo-completo">
+                            <label>Confirmar Nueva Contraseña</label>
+                            <div class="input-con-icono">
+                                <input type="password" placeholder="Confirma tu nueva contraseña">
+                                <i class='bx bx-lock-alt'></i>
+                            </div>
+                        </div>
+
+                        <div class="requisitos-password">
+                            <p><i class='bx bx-info-circle'></i> La contraseña debe contener:</p>
+                            <ul>
+                                <li>Mínimo 8 caracteres</li>
+                                <li>Al menos una letra mayúscula</li>
+                                <li>Al menos un número</li>
+                                <li>Al menos un carácter especial</li>
+                            </ul>
+                        </div>
+
+                        <button type="submit" class="btn-guardar">
+                            <i class='bx bx-check'></i> Actualizar Contraseña
+                        </button>
+                    </form>
+                </div>
+
+                <!-- SESIONES ACTIVAS -->
+                <div class="card-perfil">
+                    <div class="header-card-perfil">
+                        <h2><i class='bx bx-devices'></i> Sesiones Activas</h2>
+                    </div>
+
+                    <div class="lista-sesiones">
+                        <div class="item-sesion actual">
+                            <div class="icono-dispositivo">
+                                <i class='bx bx-laptop'></i>
+                            </div>
+                            <div class="info-sesion">
+                                <h4>Windows PC - Chrome</h4>
+                                <p>Tlaxcala, México • Activa ahora</p>
+                            </div>
+                            <span class="badge-sesion-actual">Sesión Actual</span>
+                        </div>
+
+                        <div class="item-sesion">
+                            <div class="icono-dispositivo">
+                                <i class='bx bx-mobile'></i>
+                            </div>
+                            <div class="info-sesion">
+                                <h4>iPhone - Safari</h4>
+                                <p>Tlaxcala, México • Hace 2 horas</p>
+                            </div>
+                            <button class="btn-cerrar-sesion">
+                                <i class='bx bx-x'></i> Cerrar
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="btn-cerrar-todas-sesiones">
+                        <i class='bx bx-log-out'></i> Cerrar Todas las Sesiones
+                    </button>
+                </div>
+            </div>
+
+            <!-- TAB: NOTIFICACIONES -->
+            <div class="tab-contenido" id="tab-notificaciones">
+                <div class="card-perfil">
+                    <div class="header-card-perfil">
+                        <h2><i class='bx bx-bell'></i> Preferencias de Notificaciones</h2>
+                    </div>
+
+                    <div class="lista-preferencias-notif">
+                        <div class="item-preferencia-notif">
+                            <div class="info-preferencia">
+                                <i class='bx bx-envelope'></i>
+                                <div>
+                                    <h4>Notificaciones por Email</h4>
+                                    <p>Recibe actualizaciones importantes por correo</p>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="item-preferencia-notif">
+                            <div class="info-preferencia">
+                                <i class='bx bx-mobile'></i>
+                                <div>
+                                    <h4>Notificaciones Push</h4>
+                                    <p>Recibe notificaciones en tu dispositivo</p>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="item-preferencia-notif">
+                            <div class="info-preferencia">
+                                <i class='bx bx-calendar-event'></i>
+                                <div>
+                                    <h4>Recordatorios de Clases</h4>
+                                    <p>Recibe un aviso 30 minutos antes de tus clases</p>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="item-preferencia-notif">
+                            <div class="info-preferencia">
+                                <i class='bx bx-dollar-circle'></i>
+                                <div>
+                                    <h4>Recordatorios de Pago</h4>
+                                    <p>Notificaciones sobre próximos pagos y renovaciones</p>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="item-preferencia-notif">
+                            <div class="info-preferencia">
+                                <i class='bx bx-trophy'></i>
+                                <div>
+                                    <h4>Logros y Metas</h4>
+                                    <p>Celebra tus logros y seguimiento de objetivos</p>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="item-preferencia-notif">
+                            <div class="info-preferencia">
+                                <i class='bx bx-gift'></i>
+                                <div>
+                                    <h4>Promociones y Ofertas</h4>
+                                    <p>Mantente informado sobre descuentos y eventos especiales</p>
+                                </div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="cliente-footer">
+        <div class="cliente-footer-content">
+            <p>&copy; 2025 ClubConnect - Portal de Socios</p>
+            <div class="footer-links-cliente">
+                <a href="#">Ayuda</a>
+                <a href="#">Contacto</a>
+                <a href="#">Términos</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/menu.js"></script>
+    <script src="../jsUsuario/perfil.js"></script>
+</body>
+</html>
