@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Socios - ClubConnect</title>
+    <link href="../styles/menu.css" rel="stylesheet"> 
+    <link href="../styles/socios.css" rel="stylesheet"> 
+    <link href="../styles/footer.css" rel="stylesheet"> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class='bx bx-up-arrow-alt scrolltop__icon'></i>
+    </a>
+    
+    <header class="l-header" id="header">
+        <nav class="nav bd-container">
+            <div class="nav__logo">
+                <img src="../imgs/logo.png" alt="Logo" class="logo-img"> 
+            </div>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="./index.html" class="nav__link">Control</a></li>
+                    <li class="nav__item"><a href="./socios.html" class="nav__link active-link">Gestion</a></li>
+                    <li class="nav__item"><a href="./horarios.html" class="nav__link">Horarios/Clases</a></li>
+                    <li class="nav__item"><a href="./asistencias.html" class="nav__link">Asistencias</a></li>
+                    <li class="nav__item"><a href="./pagos.html" class="nav__link">Facturación</a></li>
+                    <li class="nav__item"><a href="./configuracion.html" class="nav__link">Configuracion</a></li>
+                </ul>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-grid-alt'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contenedor-socios">
+        
+        <!-- BARRA SUPERIOR -->
+        <section class="barra-superior">
+            <div class="titulo-pagina">
+                <i class='bx bxs-user-detail'></i>
+                <h1>Gestión de Socios</h1>
+                <span class="contador">3 socios registrados</span>
+            </div>
+            
+            <div class="botones-principales">
+                <button class="boton-agregar" onclick="abrirModal('modal-nuevo-socio')">
+                    <i class='bx bx-plus-circle'></i>
+                    Nuevo Socio
+                </button>
+                <button class="boton-estadisticas" onclick="abrirModal('modal-estadisticas')">
+                    <i class='bx bx-bar-chart'></i>
+                    Estadísticas
+                </button>
+                <button class="boton-actividades" onclick="abrirModal('modal-actividades')">
+                    <i class='bx bx-dumbbell'></i>
+                    Actividades
+                </button>
+            </div>
+        </section>
+
+        <!-- ZONA DE BÚSQUEDA Y FILTROS -->
+        <section class="zona-busqueda">
+            <div class="caja-buscar">
+                <i class='bx bx-search-alt-2'></i>
+                <input type="text" placeholder="Buscar por nombre, email, teléfono o membresía...">
+            </div>
+            
+            <div class="filtros-rapidos">
+                <button class="filtro activo">
+                    <i class='bx bx-user-check'></i>
+                    Todos <span>3</span>
+                </button>
+                <button class="filtro">
+                    <i class='bx bx-badge-check'></i>
+                    Activos <span>2</span>
+                </button>
+                <button class="filtro">
+                    <i class='bx bx-user-x'></i>
+                    Inactivos <span>1</span>
+                </button>
+                <button class="filtro">
+                    <i class='bx bx-crown'></i>
+                    Premium <span>1</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- LISTA DE SOCIOS -->
+        <section class="lista-socios">
+            
+            <!-- SOCIO 1 -->
+            <article class="tarjeta-socio">
+                <div class="esquina-superior">
+                    <div class="foto-inicial">CR</div>
+                    <div class="info-basica">
+                        <h2>Carlos Rodríguez</h2>
+                        <p>carlos@email.com</p>
+                    </div>
+                    <div class="estado activo">ACTIVO</div>
+                </div>
+
+                <div class="etiquetas">
+                    <span class="etiqueta premium">
+                        <i class='bx bx-crown'></i> Premium
+                    </span>
+                    <span class="etiqueta vencimiento">
+                        <i class='bx bx-calendar'></i> Vence: 2025-12-15
+                    </span>
+                </div>
+
+                <div class="datos-socio">
+                    <div class="dato">
+                        <i class='bx bx-id-card'></i>
+                        <div class="info-dato">
+                            <small>Membresía</small>
+                            <strong>10008</strong>
+                        </div>
+                    </div>
+                    <div class="dato">
+                        <i class='bx bx-phone'></i>
+                        <div class="info-dato">
+                            <small>Teléfono</small>
+                            <strong>666123456</strong>
+                        </div>
+                    </div>
+                    <div class="dato">
+                        <i class='bx bx-calendar-event'></i>
+                        <div class="info-dato">
+                            <small>Ingreso</small>
+                            <strong>15 Oct 2025</strong>
+                        </div>
+                    </div>
+                    <div class="dato">
+                        <i class='bx bx-dumbbell'></i>
+                        <div class="info-dato">
+                            <small>Actividad</small>
+                            <strong>Crossfit</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="acciones">
+                    <button class="accion-ver">
+                        <i class='bx bx-show'></i> Ver Perfil
+                    </button>
+                    <button class="accion-editar">
+                        <i class='bx bx-edit-alt'></i> Editar
+                    </button>
+                    <button class="accion-mas">
+                        <i class='bx bx-dots-vertical-rounded'></i>
+                    </button>
+                </div>
+            </article>
+
+            <!-- SOCIO 2 -->
+            <article class="tarjeta-socio">
+                <div class="esquina-superior">
+                    <div class="foto-inicial">MG</div>
+                    <div class="info-basica">
+                        <h2>María González</h2>
+                        <p>maria@email.com</p>
+                    </div>
+                    <div class="estado activo">ACTIVO</div>
+                </div>
+
+                <div class="etiquetas">
+                    <span class="etiqueta basica">
+                        <i class='bx bx-user'></i> Básica
+                    </span>
+                    <span class="etiqueta vencimiento">
+                        <i class='bx bx-calendar'></i> Vence: 2025-11-22
+                    </span>
+                </div>
+
+                <div class="datos-socio">
+                    <div class="dato">
+                        <i class='bx bx-id-card'></i>
+                        <div class="info-dato">
+                            <small>Membresía</small>
+                            <strong>10003</strong>
+                        </div>
+                    </div>
+                    <div class="dato">
+                        <i class='bx bx-phone'></i>
+                        <div class="info-dato">
+                            <small>Teléfono</small>
+                            <strong>3472984412</strong>
+                        </div>
+                    </div>
+                    <div class="dato">
+                        <i class='bx bx-calendar-event'></i>
+                        <div class="info-dato">
+                            <small>Ingreso</small>
+                            <strong>22 Mar 2025</strong>
+                        </div>
+                    </div>
+                    <div class="dato">
+                        <i class='bx bx-dumbbell'></i>
+                        <div class="info-dato">
+                            <small>Actividad</small>
+                            <strong>Yoga</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="acciones">
+                    <button class="accion-ver">
+                        <i class='bx bx-show'></i> Ver Perfil
+                    </button>
+                    <button class="accion-editar">
+                        <i class='bx bx-edit-alt'></i> Editar
+                    </button>
+                    <button class="accion-mas">
+                        <i class='bx bx-dots-vertical-rounded'></i>
+                    </button>
+                </div>
+            </article>
+
+            <!-- SOCIO 3 -->
+            <article class="tarjeta-socio">
+                <div class="esquina-superior">
+                    <div class="foto-inicial inactivo">JP</div>
+                    <div class="info-basica">
+                        <h2>Juan Pérez</h2>
+                        <p>juan@email.com</p>
+                    </div>
+                    <div class="estado inactivo">INACTIVO</div>
+                </div>
+
+                <div class="etiquetas">
+                    <span class="etiqueta pase">
+                        <i class='bx bx-time-five'></i> Pase del Día
+                    </span>
+                    <span class="etiqueta vencido">
+                        <i class='bx bx-x-circle'></i> Vencido
+                    </span>
+                </div>
+
+                <div class="datos-socio">
+                    <div class="dato">
+                        <i class='bx bx-id-card'></i>
+                        <div class="info-dato">
+                            <small>Membresía</small>
+                            <strong>10008</strong>
+                        </div>
+                    </div>
+                    <div class="dato">
+                        <i class='bx bx-phone'></i>
+                        <div class="info-dato">
+                            <small>Teléfono</small>
+                            <strong>3345702390</strong>
+                        </div>
+                    </div>
+                    <div class="dato">
+                        <i class='bx bx-calendar-event'></i>
+                        <div class="info-dato">
+                            <small>Ingreso</small>
+                            <strong>09 Dic 2023</strong>
+                        </div>
+                    </div>
+                    <div class="dato">
+                        <i class='bx bx-dumbbell'></i>
+                        <div class="info-dato">
+                            <small>Actividad</small>
+                            <strong>Spinning</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="acciones">
+                    <button class="accion-ver">
+                        <i class='bx bx-show'></i> Ver Perfil
+                    </button>
+                    <button class="accion-editar">
+                        <i class='bx bx-edit-alt'></i> Editar
+                    </button>
+                    <button class="accion-mas">
+                        <i class='bx bx-dots-vertical-rounded'></i>
+                    </button>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+        <!-- MODAL NUEVO SOCIO -->
+    <div class="modal-fondo" id="modal-nuevo-socio">
+        <div class="modal-contenido">
+            <div class="modal-header">
+                <div class="titulo-modal">
+                    <i class='bx bx-user-plus'></i>
+                    <div>
+                        <h2>Registrar Nuevo Socio</h2>
+                        <p>Completa la información del nuevo miembro</p>
+                    </div>
+                </div>
+                <button class="boton-cerrar-modal" onclick="cerrarModal('modal-nuevo-socio')">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+
+            <form class="formulario-modal">
+                <!-- INFORMACIÓN PERSONAL -->
+                <div class="seccion-modal">
+                    <h3><i class='bx bx-user'></i> Información Personal</h3>
+                    <div class="campos-modal">
+                        <div class="campo-modal">
+                            <label>Nombre Completo *</label>
+                            <input type="text" placeholder="Ej: Juan Carlos Pérez" required>
+                        </div>
+                        <div class="campo-modal">
+                            <label>Correo Electrónico *</label>
+                            <input type="email" placeholder="ejemplo@correo.com" required>
+                        </div>
+                        <div class="campo-modal">
+                            <label>Teléfono *</label>
+                            <input type="tel" placeholder="555 123 4567" required>
+                        </div>
+                        <div class="campo-modal">
+                            <label>Fecha de Nacimiento</label>
+                            <input type="date">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MEMBRESÍA -->
+                <div class="seccion-modal">
+                    <h3><i class='bx bx-id-card'></i> Membresía y Pago</h3>
+                    <div class="campos-modal">
+                        <div class="campo-modal">
+                            <label>Tipo de Membresía *</label>
+                            <select required>
+                                <option value="">Seleccionar...</option>
+                                <option value="basica">Básica - $500/mes</option>
+                                <option value="premium">Premium - $800/mes</option>
+                                <option value="pase">Pase del Día - $100</option>
+                            </select>
+                        </div>
+                        <div class="campo-modal">
+                            <label>Duración *</label>
+                            <select required>
+                                <option value="">Seleccionar...</option>
+                                <option value="1">1 Mes</option>
+                                <option value="3">3 Meses</option>
+                                <option value="6">6 Meses</option>
+                                <option value="12">12 Meses</option>
+                            </select>
+                        </div>
+                        <div class="campo-modal">
+                            <label>Fecha de Inicio *</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="campo-modal">
+                            <label>Método de Pago *</label>
+                            <select required>
+                                <option value="">Seleccionar...</option>
+                                <option value="efectivo">Efectivo</option>
+                                <option value="tarjeta">Tarjeta</option>
+                                <option value="transferencia">Transferencia</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACTIVIDADES -->
+                <div class="seccion-modal">
+                    <h3><i class='bx bx-dumbbell'></i> Actividades</h3>
+                    <div class="campos-modal">
+                        <div class="campo-modal campo-completo">
+                            <label>Actividad Principal</label>
+                            <select>
+                                <option value="">Seleccionar...</option>
+                                <option value="crossfit">Crossfit</option>
+                                <option value="yoga">Yoga</option>
+                                <option value="spinning">Spinning</option>
+                                <option value="pilates">Pilates</option>
+                                <option value="zumba">Zumba</option>
+                            </select>
+                        </div>
+                        <div class="campo-modal campo-completo">
+                            <label>Notas Adicionales</label>
+                            <textarea rows="3" placeholder="Información médica relevante, preferencias..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTONES -->
+                <div class="botones-modal">
+                    <button type="button" class="boton-cancelar-modal" onclick="cerrarModal('modal-nuevo-socio')">
+                        <i class='bx bx-x'></i> Cancelar
+                    </button>
+                    <button type="submit" class="boton-guardar-modal">
+                        <i class='bx bx-check'></i> Guardar Socio
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL ESTADÍSTICAS -->
+    <div class="modal-fondo" id="modal-estadisticas">
+        <div class="modal-contenido modal-grande">
+            <div class="modal-header">
+                <div class="titulo-modal">
+                    <i class='bx bx-bar-chart-alt-2'></i>
+                    <div>
+                        <h2>Estadísticas de Socios</h2>
+                        <p>Análisis y métricas del gimnasio</p>
+                    </div>
+                </div>
+                <button class="boton-cerrar-modal" onclick="cerrarModal('modal-estadisticas')">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+
+            <div class="contenido-estadisticas">
+                <!-- RESUMEN RÁPIDO -->
+                <div class="tarjetas-estadisticas">
+                    <div class="tarjeta-stat">
+                        <i class='bx bx-user-check'></i>
+                        <div>
+                            <h4>Total Socios</h4>
+                            <span class="numero-grande">3</span>
+                            <small>+0% vs mes anterior</small>
+                        </div>
+                    </div>
+                    <div class="tarjeta-stat">
+                        <i class='bx bx-trending-up'></i>
+                        <div>
+                            <h4>Activos</h4>
+                            <span class="numero-grande">2</span>
+                            <small>66.7% del total</small>
+                        </div>
+                    </div>
+                    <div class="tarjeta-stat">
+                        <i class='bx bx-crown'></i>
+                        <div>
+                            <h4>Premium</h4>
+                            <span class="numero-grande">1</span>
+                            <small>33.3% del total</small>
+                        </div>
+                    </div>
+                    <div class="tarjeta-stat">
+                        <i class='bx bx-dollar-circle'></i>
+                        <div>
+                            <h4>Ingresos Mes</h4>
+                            <span class="numero-grande">$1,300</span>
+                            <small>Membresías activas</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRÁFICAS -->
+                <div class="seccion-graficas">
+                    <div class="grafica-box">
+                        <h3>Distribución por Membresía</h3>
+                        <div class="grafica-barras">
+                            <div class="barra-stat">
+                                <label>Premium</label>
+                                <div class="barra-progreso">
+                                    <div class="relleno-barra premium" style="width: 33%">33%</div>
+                                </div>
+                            </div>
+                            <div class="barra-stat">
+                                <label>Básica</label>
+                                <div class="barra-progreso">
+                                    <div class="relleno-barra basica" style="width: 33%">33%</div>
+                                </div>
+                            </div>
+                            <div class="barra-stat">
+                                <label>Pase del Día</label>
+                                <div class="barra-progreso">
+                                    <div class="relleno-barra pase" style="width: 33%">33%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grafica-box">
+                        <h3>Estado de Socios</h3>
+                        <div class="grafica-circular">
+                            <div class="circulo-stat activo">
+                                <span>67%</span>
+                                <small>Activos</small>
+                            </div>
+                            <div class="circulo-stat inactivo">
+                                <span>33%</span>
+                                <small>Inactivos</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL ACTIVIDADES -->
+    <div class="modal-fondo" id="modal-actividades">
+        <div class="modal-contenido">
+            <div class="modal-header">
+                <div class="titulo-modal">
+                    <i class='bx bx-dumbbell'></i>
+                    <div>
+                        <h2>Gestión de Actividades</h2>
+                        <p>Clases y servicios del gimnasio</p>
+                    </div>
+                </div>
+                <button class="boton-cerrar-modal" onclick="cerrarModal('modal-actividades')">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+
+            <div class="contenido-actividades">
+                <!-- BOTÓN AGREGAR ACTIVIDAD -->
+                <button class="boton-nueva-actividad">
+                    <i class='bx bx-plus-circle'></i>
+                    Nueva Actividad
+                </button>
+
+                <!-- LISTA DE ACTIVIDADES -->
+                <div class="lista-actividades">
+                    <div class="item-actividad">
+                        <div class="icono-actividad crossfit">
+                            <i class='bx bx-dumbbell'></i>
+                        </div>
+                        <div class="info-actividad">
+                            <h4>Crossfit</h4>
+                            <p>Entrenamiento de alta intensidad</p>
+                            <div class="detalles-actividad">
+                                <span><i class='bx bx-time'></i> Lun, Mié, Vie - 6:00 AM</span>
+                                <span><i class='bx bx-group'></i> 15 socios inscritos</span>
+                            </div>
+                        </div>
+                        <div class="acciones-actividad">
+                            <button class="btn-editar-actividad"><i class='bx bx-edit'></i></button>
+                            <button class="btn-eliminar-actividad"><i class='bx bx-trash'></i></button>
+                        </div>
+                    </div>
+
+                    <div class="item-actividad">
+                        <div class="icono-actividad yoga">
+                            <i class='bx bx-body'></i>
+                        </div>
+                        <div class="info-actividad">
+                            <h4>Yoga</h4>
+                            <p>Relajación y flexibilidad</p>
+                            <div class="detalles-actividad">
+                                <span><i class='bx bx-time'></i> Mar, Jue - 7:00 AM</span>
+                                <span><i class='bx bx-group'></i> 12 socios inscritos</span>
+                            </div>
+                        </div>
+                        <div class="acciones-actividad">
+                            <button class="btn-editar-actividad"><i class='bx bx-edit'></i></button>
+                            <button class="btn-eliminar-actividad"><i class='bx bx-trash'></i></button>
+                        </div>
+                    </div>
+
+                    <div class="item-actividad">
+                        <div class="icono-actividad spinning">
+                            <i class='bx bx-cycling'></i>
+                        </div>
+                        <div class="info-actividad">
+                            <h4>Spinning</h4>
+                            <p>Ciclismo indoor</p>
+                            <div class="detalles-actividad">
+                                <span><i class='bx bx-time'></i> Lun, Mié - 5:00 PM</span>
+                                <span><i class='bx bx-group'></i> 8 socios inscritos</span>
+                            </div>
+                        </div>
+                        <div class="acciones-actividad">
+                            <button class="btn-editar-actividad"><i class='bx bx-edit'></i></button>
+                            <button class="btn-eliminar-actividad"><i class='bx bx-trash'></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER ADMIN -->
+    <footer class="admin-footer">
+        <div class="admin-footer-content">
+            <p>&copy; 2025 ClubConnect - Panel de Administración</p>
+            <div class="footer-links-admin">
+                <a href="#">Ayuda</a>
+                <a href="#">Documentación</a>
+                <a href="#">Soporte Técnico</a>
+                <a href="#">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/menu.js"></script>
+</body>
+</html>
