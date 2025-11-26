@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturación y Pagos - ClubConnect</title>
+    <link href="../styles/menu.css" rel="stylesheet"> 
+    <link href="../styles/pagos.css" rel="stylesheet"> 
+    <link href="../styles/footer.css" rel="stylesheet"> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+</head>
+<body>
+
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class='bx bx-up-arrow-alt scrolltop__icon'></i>
+    </a>
+    
+    <header class="l-header" id="header">
+        <nav class="nav bd-container">
+            <div class="nav__logo">
+                <img src="../imgs/logo.png" alt="Logo" class="logo-img"> 
+            </div>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="./index.html" class="nav__link">Control</a></li>
+                    <li class="nav__item"><a href="./socios.html" class="nav__link">Gestion</a></li>
+                    <li class="nav__item"><a href="./horarios.html" class="nav__link">Horarios/Clases</a></li>
+                    <li class="nav__item"><a href="./asistencias.html" class="nav__link">Asistencias</a></li>
+                    <li class="nav__item"><a href="./pagos.html" class="nav__link active-link">Facturación</a></li>
+                    <li class="nav__item"><a href="./configuracion.html" class="nav__link">Configuracion</a></li>
+                </ul>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-grid-alt'></i>
+            </div>
+        </nav>
+    </header>
+    
+
+    <main class="contenedor pagos">
+        
+        <!-- ENCABEZADO -->
+        <section class="encabezado pagos">
+            <div class="titulo pagos">
+                <i class='bx bx-dollar-circle'></i>
+                <div>
+                    <h1>Facturación y Pagos</h1>
+                    <p>Control de ingresos y membresías</p>
+                </div>
+            </div>
+            
+            <div class="botones encabezado">
+                <button class="boton registrar pago" onclick="abrirModal('modal registrar pago')">
+                    <i class='bx bx-plus-circle'></i>
+                    Registrar Pago
+                </button>
+                <button class="boton exportar">
+                    <i class='bx bx-download'></i>
+                    Exportar
+                </button>
+            </div>
+        </section>
+
+        <div class="contenedor-principal">
+    <h1 class="titulo">Control de Pagos</h1>
+
+        <!-- RESUMEN FINANCIERO -->
+        <section class="resumen financiero">
+            <div class="tarjeta financiera">
+                <div class="icono financiero ingresos">
+                    <i class='bx bx-trending-up'></i>
+                </div>
+                <div class="info financiera">
+                    <small>Ingresos del Mes</small>
+                    <span class="monto">$15,800</span>
+                    <span class="cambio positivo">
+                        <i class='bx bx-up-arrow-alt'></i> +12% vs mes anterior
+                    </span>
+                </div>
+            </div>
+
+            <div class="tarjeta financiera">
+                <div class="icono financiero pendientes">
+                    <i class='bx bx-time-five'></i>
+                </div>
+                <div class="info financiera">
+                    <small>Pagos Pendientes</small>
+                    <span class="monto">$3,200</span>
+                    <span class="cambio">
+                        <i class='bx bx-user'></i> 4 socios
+                    </span>
+                </div>
+            </div>
+
+            <div class="tarjeta financiera">
+                <div class="icono financiero vencidos">
+                    <i class='bx bx-error'></i>
+                </div>
+                <div class="info financiera">
+                    <small>Membresías Vencidas</small>
+                    <span class="monto">2</span>
+                    <span class="cambio negativo">
+                        <i class='bx bx-down-arrow-alt'></i> Requieren atención
+                    </span>
+                </div>
+            </div>
+
+            <div class="tarjeta financiera">
+                <div class="icono financiero proyeccion">
+                    <i class='bx bx-line-chart'></i>
+                </div>
+                <div class="info financiera">
+                    <small>Proyección Mensual</small>
+                    <span class="monto">$18,500</span>
+                    <span class="cambio positivo">
+                        <i class='bx bx-check-circle'></i> En objetivo
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FILTROS Y BÚSQUEDA -->
+        <section class="filtros pagos">
+            <div class="buscador pagos">
+                <i class='bx bx-search-alt-2'></i>
+                <input type="text" placeholder="Buscar por nombre o membresía..." id="buscar pago">
+            </div>
+
+            <div class="filtros rapidos">
+                <button class="filtro pago activo" data-estado="todos">
+                    <i class='bx bx-list-ul'></i> Todos
+                </button>
+                <button class="filtro pago" data-estado="pagado">
+                    <i class='bx bx-check-circle'></i> Pagados
+                </button>
+                <button class="filtro pago" data-estado="pendiente">
+                    <i class='bx bx-time-five'></i> Pendientes
+                </button>
+                <button class="filtro pago" data-estado="vencido">
+                    <i class='bx bx-error'></i> Vencidos
+                </button>
+            </div>
+
+            <select class="selector mes" id="selector mes">
+                <option value="todos">Todos los meses</option>
+                <option value="0">Enero 2025</option>
+                <option value="1">Febrero 2025</option>
+                <option value="2">Marzo 2025</option>
+                <option value="3">Abril 2025</option>
+                <option value="4">Mayo 2025</option>
+                <option value="5">Junio 2025</option>
+                <option value="6">Julio 2025</option>
+                <option value="7">Agosto 2025</option>
+                <option value="8">Septiembre 2025</option>
+                <option value="9">Octubre 2025</option>
+                <option value="10">Noviembre 2025</option>
+                <option value="11">Diciembre 2025</option>
+            </select>
+        </section>
+
+        <!-- LISTA DE PAGOS -->
+        <section class="lista pagos">
+            <div class="titulo seccion pagos">
+                <h2><i class='bx bx-receipt'></i> Registro de Pagos</h2>
+                <span class="contador pagos">0 registros</span>
+            </div>
+
+            <div class="tabla pagos">
+                <div class="header tabla">
+                    <div class="columna socio">Socio</div>
+                    <div class="columna membresia">Membresía</div>
+                    <div class="columna monto">Monto</div>
+                    <div class="columna fecha">Fecha Pago</div>
+                    <div class="columna vencimiento">Vencimiento</div>
+                    <div class="columna estado">Estado</div>
+                    <div class="columna acciones">Acciones</div>
+                </div>
+
+                <div class="contenedor registros pagos" id="registros pagos">
+                    <!-- Se genera dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL REGISTRAR PAGO -->
+    <div class="modal fondo" id="modal registrar pago">
+        <div class="modal contenido">
+            <div class="modal header">
+                <div class="titulo modal">
+                    <i class='bx bx-dollar-circle'></i>
+                    <div>
+                        <h2>Registrar Pago</h2>
+                        <p>Registra un nuevo pago de membresía</p>
+                    </div>
+                </div>
+                <button class="boton cerrar modal" onclick="cerrarModal('modal registrar pago')">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+
+            <form class="formulario pago" onsubmit="guardarPago(event)">
+                <div class="campos pago">
+                    
+                    <!-- BUSCAR SOCIO -->
+                    <div class="campo pago completo">
+                        <label>Buscar Socio *</label>
+                        <div class="input buscar">
+                            <i class='bx bx-search'></i>
+                            <input type="text" id="buscar socio pago" placeholder="Nombre o ID de membresía..." required>
+                        </div>
+                    </div>
+
+                    <!-- INFO SOCIO -->
+                    <div class="socio info pago" style="display: none;" id="info socio pago">
+                        <div class="avatar socio pago">MG</div>
+                        <div>
+                            <h4 id="nombre socio pago">Nombre del Socio</h4>
+                            <p id="membresia socio pago">Tipo - #0000</p>
+                        </div>
+                    </div>
+
+                    <!-- TIPO MEMBRESÍA -->
+                    <div class="campo pago">
+                        <label>Tipo de Membresía *</label>
+                        <select id="tipo membresia" required>
+                            <option value="">Seleccionar...</option>
+                            <option value="basica">Básica - $500/mes</option>
+                            <option value="premium">Premium - $800/mes</option>
+                            <option value="vip">VIP - $1,200/mes</option>
+                        </select>
+                    </div>
+
+                    <!-- DURACIÓN -->
+                    <div class="campo pago">
+                        <label>Duración *</label>
+                        <select id="duracion pago" required onchange="calcularMonto()">
+                            <option value="">Seleccionar...</option>
+                            <option value="1">1 Mes</option>
+                            <option value="3">3 Meses (5% desc.)</option>
+                            <option value="6">6 Meses (10% desc.)</option>
+                            <option value="12">12 Meses (15% desc.)</option>
+                        </select>
+                    </div>
+
+                    <!-- MONTO -->
+                    <div class="campo pago">
+                        <label>Monto a Pagar *</label>
+                        <input type="number" id="monto pago" placeholder="$0.00" required readonly>
+                    </div>
+
+                    <!-- MÉTODO DE PAGO -->
+                    <div class="campo pago">
+                        <label>Método de Pago *</label>
+                        <select id="metodo pago" required>
+                            <option value="">Seleccionar...</option>
+                            <option value="efectivo">Efectivo</option>
+                            <option value="tarjeta">Tarjeta</option>
+                            <option value="transferencia">Transferencia</option>
+                        </select>
+                    </div>
+
+                    <!-- FECHA DE PAGO -->
+                    <div class="campo pago">
+                        <label>Fecha de Pago *</label>
+                        <input type="date" id="fecha pago" required>
+                    </div>
+
+                    <!-- NOTAS -->
+                    <div class="campo pago completo">
+                        <label>Notas (opcional)</label>
+                        <textarea id="notas pago" rows="3" placeholder="Observaciones adicionales..."></textarea>
+                    </div>
+
+                </div>
+
+                <div class="botones modal">
+                    <button type="button" class="boton cancelar modal" onclick="cerrarModal('modal registrar pago')">
+                        <i class='bx bx-x'></i> Cancelar
+                    </button>
+                    <button type="submit" class="boton guardar modal">
+                        <i class='bx bx-check'></i> Registrar Pago
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL VER DETALLE PAGO -->
+    <div class="modal fondo" id="modal ver pago">
+        <div class="modal contenido">
+            <div class="modal header">
+                <div class="titulo modal">
+                    <i class='bx bx-receipt'></i>
+                    <div>
+                        <h2>Detalle del Pago</h2>
+                        <p>Información completa del registro</p>
+                    </div>
+                </div>
+                <button class="boton cerrar modal" onclick="cerrarModal('modal ver pago')">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+
+            <div class="contenido detalle pago">
+                <div class="recibo pago">
+                    <div class="header recibo">
+                        <i class='bx bx-check-circle'></i>
+                        <h3>Pago Exitoso</h3>
+                        <span class="numero recibo" id="numero recibo">#PAG-0001</span>
+                    </div>
+
+                    <div class="info recibo">
+                        <div class="item recibo">
+                            <span class="label">Socio:</span>
+                            <span class="valor" id="socio recibo">-</span>
+                        </div>
+                        <div class="item recibo">
+                            <span class="label">Membresía:</span>
+                            <span class="valor" id="membresia recibo">-</span>
+                        </div>
+                        <div class="item recibo">
+                            <span class="label">Duración:</span>
+                            <span class="valor" id="duracion recibo">-</span>
+                        </div>
+                        <div class="item recibo">
+                            <span class="label">Método de Pago:</span>
+                            <span class="valor" id="metodo recibo">-</span>
+                        </div>
+                        <div class="item recibo">
+                            <span class="label">Fecha de Pago:</span>
+                            <span class="valor" id="fecha recibo">-</span>
+                        </div>
+                        <div class="item recibo">
+                            <span class="label">Vence:</span>
+                            <span class="valor" id="vencimiento recibo">-</span>
+                        </div>
+                        </div>
+
+                        <div class="total recibo">
+                    <span>Total Pagado</span>
+                    <span class="monto total" id="monto recibo">$0.00</span>
+                </div>
+
+                <div class="botones recibo">
+                    <button class="boton imprimir">
+                        <i class='bx bx-printer'></i> Imprimir Recibo
+                    </button>
+                    <button class="boton enviar email">
+                        <i class='bx bx-envelope'></i> Enviar por Email
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER ADMIN -->
+ 
+<footer class="admin-footer">
+    <div class="admin-footer-content">
+        <p>&copy; 2025 ClubConnect - Panel de Administración</p>
+
+        <div class="footer-links-admin">
+            <a href="#">Ayuda</a>
+            <a href="#">Documentación</a>
+            <a href="#">Soporte Técnico</a>
+            <a href="#">Privacidad</a>
+        </div>
+    </div>
+</footer>
+<script src="../js/menu.js"></script>
+<script src="../js/pagos.js"></script>
+
+</body>
+</html>
